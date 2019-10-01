@@ -1,5 +1,5 @@
 const DEFAULT_USER = {id: 'u1', email: 'test@example.net', name: 'Mario Rossi'};
-let currentUser = DEFAULT_USER;
+let currentUser = null//DEFAULT_USER;
 
 export const authMe = async () => {
     if (!currentUser) {

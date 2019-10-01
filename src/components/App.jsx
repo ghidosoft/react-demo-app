@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import { logout } from '../actions/authActions';
-import './App.css';
+import '../styles/App.css';
 import Login from './Login';
+import Header from './Header';
 
 const Users = () => (<div>Users</div>);
 const Dashboard = () => (<div>Dashboard</div>);
@@ -18,19 +19,22 @@ const App = ({authLoading, logged, user, logout}) => {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>Benvenuto <strong>{user.email}</strong>!</p>
-                <button onClick={logout}>Logout</button>
-                <Link to="/">Dashboard</Link>
-                <Link to="/users">Users</Link>
-            </header>
-            <main>
-                <Switch>
-                    <Route path="/users" exact component={Users} />
-                    <Route component={Dashboard} />
-                </Switch>
-            </main>
+        <div>
+            <Header user={user} onLogout={logout} />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-3 sidebar">
+                        <NavLink exact to="/">Dashboard</NavLink>
+                        <NavLink to="/users">Users</NavLink>
+                    </div>
+                    <main className="col">
+                        <Switch>
+                            <Route path="/users" exact component={Users} />
+                            <Route component={Dashboard} />
+                        </Switch>
+                    </main>
+                </div>
+            </div>
         </div>
     );
 }

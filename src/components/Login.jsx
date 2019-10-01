@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 import { Redirect } from 'react-router-dom';
 import { requestLogin } from '../actions/authActions';
 
@@ -28,23 +29,23 @@ class Login extends Component {
         }
         return (
             <>
-                <div className="login">
-                    <form className="form-signin" onSubmit={this.handleSubmit}>
-                        <div className="logo text-center">
+                <div className="container">
+                    <form onSubmit={this.handleSubmit} className="form-signin">
+                        <div className="text-center">
                             <span>React Demo App</span>
                         </div>
                         <div className="separator" />
                         <div className="form-content">
                             <div className="form-group">
                                 <label htmlFor="inputEmail">Email</label>
-                                <input type="email" id="inputEmail" className="form-control" placeholder="" required autoFocus
+                                <input type="email" id="inputEmail" className={classNames('form-control', {'is-invalid': !!error})} placeholder="" required autoFocus
                                     value={this.state.username} onChange={this.handleChangeUsername} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="inputPassword">Password</label>
-                                <input type="password" id="inputPassword" className="form-control" placeholder="" required
+                                <input type="password" id="inputPassword" className={classNames('form-control', {'is-invalid': !!error})} placeholder="" required
                                     value={this.state.password} onChange={this.handleChangePassword} />
-                                {error && <div>Invalid credentials</div>}
+                                {error && <div className="invalid-feedback">Invalid credentials</div>}
                             </div>
                             <div className="text-center login-button">
                                 <button className="btn btn-primary" type="submit" disabled={loading}>
