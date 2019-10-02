@@ -4,7 +4,7 @@ import {userListRequested} from '../../actions/userActions';
 import Loader from '../Loader';
 import UserTable from './UserTable';
 
-class UserList extends React.Component {
+export class UserList extends React.Component {
     componentDidMount() {
         this.props.userListRequested();
     }

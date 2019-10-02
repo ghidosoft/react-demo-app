@@ -25,3 +25,4 @@ export const authLogin = async (username, password) => {
 };
 
 export const userList = () => axios.get('http://dummy.restapiexample.com/api/v1/employees');
+export const userDetail = (id) => axios.get(`http://dummy.restapiexample.com/api/v1/employee/${id}`);

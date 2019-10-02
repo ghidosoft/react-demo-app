@@ -2,12 +2,12 @@ import React from 'react';
 import UserRow from './UserRow';
 
 const UserTable = ({items}) => (
-    <table className="table">
+    <table className="table table-striped">
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Salary</td>
-                <td>Age</td>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Salary</th>
             </tr>
         </thead>
         <tbody>
