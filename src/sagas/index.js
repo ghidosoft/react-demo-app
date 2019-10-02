@@ -2,6 +2,7 @@ import {fork, all, call, put} from 'redux-saga/effects';
 import * as api from '../services/api';
 import {loginSuccess, logout} from '../actions/authActions';
 import authSagas from './authSagas';
+import userSagas from './userSagas';
 
 function* checkLogin() {
     try {
@@ -16,5 +17,6 @@ export default function* rootSaga() {
     yield all([
         fork(checkLogin),
         fork(authSagas),
+        fork(userSagas),
     ]);
 }

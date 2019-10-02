@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 const DEFAULT_USER = {id: 'u1', email: 'test@example.net', name: 'Mario Rossi'};
-let currentUser = null//DEFAULT_USER;
+let currentUser = DEFAULT_USER;
 
 export const authMe = async () => {
     if (!currentUser) {
@@ -21,3 +23,5 @@ export const authLogin = async (username, password) => {
         throw new Error('401 error...');
     }
 };
+
+export const userList = () => axios.get('http://dummy.restapiexample.com/api/v1/employees');

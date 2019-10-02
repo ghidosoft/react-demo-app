@@ -5,8 +5,8 @@ import { logout } from '../actions/authActions';
 import '../styles/App.css';
 import Login from './Login';
 import Header from './Header';
+import Users from './users/Users';
 
-const Users = () => (<div>Users</div>);
 const Dashboard = () => (<div>Dashboard</div>);
 
 const App = ({authLoading, logged, user, logout}) => {
@@ -29,7 +29,7 @@ const App = ({authLoading, logged, user, logout}) => {
                     </div>
                     <main className="col">
                         <Switch>
-                            <Route path="/users" exact component={Users} />
+                            <Route path="/users" component={Users} />
                             <Route component={Dashboard} />
                         </Switch>
                     </main>
